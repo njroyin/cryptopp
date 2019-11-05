@@ -1,0 +1,17 @@
+1、将 sergiu-cryptopp-cmake/CMakeLists.txt
+sergiu-cryptopp-cmake/cryptopp-config-build.cmake.in
+sergiu-cryptopp-cmake/cryptopp-config-version.cmake.in
+sergiu-cryptopp-cmake/cryptopp-config.cmake.in
+复制到 cryptopp根目录下. 执行 cmake build 
+
+2、将Release目录下的 include文件夹及lib文件夹复制到需要引用cryptopp库的项目根目录
+
+3、将 sergiu-cryptopp-cmake/FindCryptoPP.cmake
+复制到 需要引用cryptopp库的项目中，放置与该项目CMakeLists.txt同一目录
+并编辑 CMakeLists.txt 添加
+include(${PROJECT_SOURCE_DIR}/FindCryptoPP.cmake)
+target_link_libraries(${PROJECT_NAME} CryptoPP)
+
+致谢
+https://github.com/noloader/cryptopp-cmake
+https://bitbucket.org/sergiu/cryptopp-cmake/src/default/
